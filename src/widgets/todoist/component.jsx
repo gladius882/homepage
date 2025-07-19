@@ -26,13 +26,21 @@ export default function Component({ service }) {
     return (
         <>
             <Container service={service}>
-                <Block label="Tasks" value={data.results.length} />
+                <Block label="Tasks for today" value={data.results.length} />
             </Container>
+
             <div className="flex flex-col">
                 {data.results && data.results.map(task => (
                     <div key={task.id} className="bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 p-1 flex items-center gap-3">
-                        <input type="checkbox" />
-                        {task.content}
+                        <div>{task.content}</div>
+
+                        {task.labels && (
+                            <div>
+                                {task.labels && (widget.fields === null || widget.fields.includes("label")) && task.labels.map(label => (
+                                    <div key={label} className="rounded bg-[white] text-black p-1 text-xs">@{label}</div>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>
