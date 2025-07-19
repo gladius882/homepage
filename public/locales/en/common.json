@@ -639,6 +639,10 @@
         "print_progress": "Progress",
         "layers": "Layers"
     },
+    "myip": {
+        "ip": "IP",
+        "country": "Country"
+    },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",

@@ -68,6 +68,7 @@ import minecraft from "./minecraft/widget";
 import miniflux from "./miniflux/widget";
 import mjpeg from "./mjpeg/widget";
 import moonraker from "./moonraker/widget";
+import myip from "./myip/widget";
 import mylar from "./mylar/widget";
 import myspeed from "./myspeed/widget";
 import navidrome from "./navidrome/widget";
@@ -212,6 +213,7 @@ const widgets = {
   mikrotik,
   mjpeg,
   moonraker,
+  myip,
   mylar,
   myspeed,
   navidrome,
