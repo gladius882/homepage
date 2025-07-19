@@ -30,7 +30,8 @@ export default function Component({ service }) {
             </Container>
             <div className="flex flex-col">
                 {data.results && data.results.map(task => (
-                    <div key={task.id}>
+                    <div key={task.id} className="bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 p-1 flex items-center gap-3">
+                        <input type="checkbox" />
                         {task.content}
                     </div>
                 ))}
