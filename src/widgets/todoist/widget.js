@@ -7,7 +7,8 @@ const widget = {
 
     mappings: {
         tasks: {
-            endpoint: "tasks"
+            endpoint: "tasks/filter",
+            params: ["limit", "query"]
         }
     }
 }

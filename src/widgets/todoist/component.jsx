@@ -6,13 +6,16 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 export default function Component({ service }) {
     const { t } = useTranslation();
     const { widget } = service;
-    const { data, error } = useWidgetAPI(widget, "tasks");
+    const { data, error } = useWidgetAPI(widget, "tasks", {
+        limit: 10,
+        query: "today | overdue"
+    });
 
-    if(error) {
-        return <Container service={service} error={error}/>
+    if (error) {
+        return <Container service={service} error={error} />
     }
 
-    if(!data) {
+    if (!data) {
         return (
             <Container service={service}>
                 <Block label="No data" />
@@ -21,8 +24,18 @@ export default function Component({ service }) {
     }
 
     return (
-        <Container service={service}>
-            {JSON.stringify(data)}
-        </Container>
+        <>
+            <Container service={service}>
+                <Block label="Tasks" value={data.results.length} />
+            </Container>
+            <div className="flex flex-col">
+                {data.results && data.results.map(task => (
+                    <div key={task.id}>
+                        {task.content}
+                    </div>
+                ))}
+            </div>
+        </>
+
     )
 }
