@@ -31,7 +31,25 @@ export default function Component({ service }) {
 
             <div className="flex flex-col">
                 {data.results && data.results.map(task => (
+
+
                     <div key={task.id} className="bg-theme-200/50 dark:bg-theme-900/20 rounded-sm m-1 p-1 flex items-center gap-3">
+                        {task.priority == 4 && (
+                            <div className="bg-[#ff7066] size-[10px] rounded"></div>
+                        )}
+
+                        {task.priority == 3 && (
+                            <div className="bg-[#ff9a13] size-[10px] rounded"></div>
+                        )}
+
+                        {task.priority == 2 && (
+                            <div className="bg-[#5297ff] size-[10px] rounded"></div>
+                        )}
+
+                        {task.priority == 1 && (
+                            <div className="bg-[#6b6b6b] size-[10px] rounded"></div>
+                        )}
+
                         <div>{task.content}</div>
 
                         {task.labels && (
@@ -41,6 +59,8 @@ export default function Component({ service }) {
                                 ))}
                             </div>
                         )}
+
+
                     </div>
                 ))}
             </div>
